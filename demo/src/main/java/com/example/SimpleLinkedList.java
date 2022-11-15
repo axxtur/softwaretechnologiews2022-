@@ -1,15 +1,9 @@
-/*
- * (c) 2013-2021  Heinrich Hussmann und Uwe Aßmann, TU Dresden
- */
-package st2e3;
+package com.example;
 
 import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Iterator;
 
-/**
- * Achtung! Einige der Methoden sind fehlerhaft und müssen repariert werden.
- */
 public class SimpleLinkedList<E> extends AbstractCollection<E> implements Collection<E> {
     private class Elem {
         private E elem;
