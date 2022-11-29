@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="de"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>SimpleLinkedList.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">demo</a> &gt; <a href="index.source.html" class="el_package">com.example</a> &gt; <span class="el_source">SimpleLinkedList.java</span></div><h1>SimpleLinkedList.java</h1><pre class="source lang-java linenums">
+package com.example;
+
+import java.util.AbstractCollection;
+import java.util.Collection;
+import java.util.Iterator;
+
+<span class="fc" id="L8">public class SimpleLinkedList&lt;E&gt; extends AbstractCollection&lt;E&gt; implements Collection&lt;E&gt; {</span>
+    private class Elem {
+        private E elem;
+        private Elem next;
+
+<span class="fc" id="L13">        public Elem(E elem, Elem next) {</span>
+<span class="fc" id="L14">            this.elem = elem;</span>
+<span class="fc" id="L15">            this.next = next;</span>
+<span class="fc" id="L16">        }</span>
+    }
+
+<span class="fc" id="L19">    private Elem start = null;</span>
+<span class="fc" id="L20">    private Elem end = null;</span>
+<span class="fc" id="L21">    private int size = 0;</span>
+
+    @Override
+    public boolean add(E o) {
+<span class="fc" id="L25">        Elem e = new Elem(o, null);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        if (start == null) { //if list is empty, start and end point to e</span>
+<span class="fc" id="L27">            start = e;</span>
+<span class="fc" id="L28">            end = e;</span>
+        }else{	
+<span class="fc" id="L30">            end.next = e; //insert e at the end of the list</span>
+<span class="fc" id="L31">            end = e; //e become new end of the list</span>
+        }
+<span class="fc" id="L33">        size++;</span>
+<span class="fc" id="L34">        return true;</span>
+    }
+
+    @Override
+    public int size() {
+<span class="fc" id="L39">        return size;</span>
+    }
+
+    private class Iter implements Iterator&lt;E&gt; {
+        private Elem current;
+
+<span class="fc" id="L45">        public Iter() {</span>
+<span class="fc" id="L46">            current = start;</span>
+<span class="fc" id="L47">        }</span>
+
+        @Override
+        public boolean hasNext() {
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">            return current != null;</span>
+        }
+
+        @Override
+        public E next() {
+<span class="fc" id="L56">            current = current.next;</span>
+<span class="fc" id="L57">            return current.elem;</span>
+        }
+
+        @Override
+        public void remove() {
+<span class="fc" id="L62">            throw new UnsupportedOperationException();</span>
+        }
+    }
+
+    @Override
+    public Iterator&lt;E&gt; iterator() {
+<span class="fc" id="L68">        return new Iter();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

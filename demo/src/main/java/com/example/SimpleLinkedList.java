@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-/*
- * (c) 2013-2021  Heinrich Hussmann und Uwe Aßmann, TU Dresden
- */
-=======
->>>>>>> origin/ana
+
 package com.example;
 
 import java.util.AbstractCollection;
