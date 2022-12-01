@@ -22,7 +22,7 @@ public class AppTest {
 
     @Test
     public void testAddException() {
-        SimpleLinkedList<Integer> list = new SimpleLinkedList<Integer>(); //create empty list
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>(); //create empty list
         list.add(1);
         list.add(2);
         list.add(3);
@@ -30,19 +30,7 @@ public class AppTest {
         assertTrue(iter.hasNext());
         System.out.println(iter.next());
         System.out.println(iter.next());
-        //System.out.println(iter.next());
-        assertTrue(iter.hasNext());
-        // assertFalse(iter.hasNext());
-       /* for (int i = 0; i < list.size() - 1; i++) {
-            if (iter.hasNext()) {
-                System.out.println(iter.next());
-            }
-            if (!iter.hasNext()) {
-                list.add(4);
-            } *//*else {
-                iter.remove();
-            }*//*
-        }*/
+        assertFalse(iter.hasNext());
     }
 
 
@@ -52,12 +40,7 @@ public class AppTest {
         list.add(1);
         list.add(2);
         Iterator<Integer> iter = list.iterator();
-        //exception.ex
-        /*try{
-           iter.remove();
-        } catch (UnsupportedOperationException e){
 
-        }*/
     }
 
 
