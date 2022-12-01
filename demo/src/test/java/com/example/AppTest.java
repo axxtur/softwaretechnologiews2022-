@@ -1,6 +1,8 @@
 package com.example;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import java.util.Iterator;
 
@@ -28,8 +30,9 @@ public class AppTest {
         assertTrue(iter.hasNext());
         System.out.println(iter.next());
         System.out.println(iter.next());
-        //assertFalse(iter.hasNext());
-
+        //System.out.println(iter.next());
+        assertTrue(iter.hasNext());
+        // assertFalse(iter.hasNext());
        /* for (int i = 0; i < list.size() - 1; i++) {
             if (iter.hasNext()) {
                 System.out.println(iter.next());
@@ -40,7 +43,22 @@ public class AppTest {
                 iter.remove();
             }*//*
         }*/
-
     }
+
+
+    @Test
+    public void testRemove() {
+        SimpleLinkedList<Integer> list = new SimpleLinkedList<>();
+        list.add(1);
+        list.add(2);
+        Iterator<Integer> iter = list.iterator();
+        //exception.ex
+        /*try{
+           iter.remove();
+        } catch (UnsupportedOperationException e){
+
+        }*/
+    }
+
 
 }
