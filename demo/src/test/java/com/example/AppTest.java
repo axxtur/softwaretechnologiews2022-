@@ -14,11 +14,11 @@ class AppTest {
 	@Test
 	void testAdd() {
 		SimpleLinkedList<Integer> list = new SimpleLinkedList<Integer>(); //create empty list
-		assertEquals(list.size(), 0); //check size of list, should equal 0
+		assertEquals(0, list.size()); //check size of list, should equal 0
 		list.add(3); //add 3 into list 
-		assertEquals(list.size(), 1); //check size of list, should equal 1
+		assertEquals(1, list.size()); //check size of list, should equal 1
 		list.add(5);//add 5 into list
-		assertEquals(list.size(), 2); //check size of list, should equal 2
+		assertEquals(2, list.size()); //check size of list, should equal 2
 	}
 	
 	@Test
@@ -32,11 +32,6 @@ class AppTest {
         iter.remove());
         
         assertEquals("List is empty, cannot delete element", exception.getMessage());
-//        try {
-//        	iter.remove();	
-//        }catch(Exception e) {
-//        	System.out.println(e.getMessage());
-//        }
     }
     
     @Test
