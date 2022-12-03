@@ -43,6 +43,22 @@ public class SimpleLinkedList<E> extends AbstractCollection<E> implements Collec
     public int size() {
         return size;
     }
+    
+  //Method to print the LinkedList for testing and debugging
+    public void printList(){
+        Elem currNode = start;
+    
+        System.out.print("LinkedList: ");
+    
+        //Traverse through the LinkedList
+        while (currNode != null) {
+            // Print the element at current node
+            System.out.print(currNode.elem + " ");
+    
+            //Go to next node
+            currNode = currNode.next;
+        }
+    }
 
     private class Iter implements Iterator<E> {
         private Elem current;
@@ -63,9 +79,25 @@ public class SimpleLinkedList<E> extends AbstractCollection<E> implements Collec
         }
 
         @Override
-        public void remove() {
-            throw new UnsupportedOperationException();
-        }
+		public void remove() {
+			//if list empty, throw exception, otherwise remove head
+			if (start == null) {
+				throw new NullPointerException("List is empty, cannot delete element"); 
+			}else {
+				//if list has more than one element
+				if (size > 1) {
+					start = start.next; //start pointing to next element
+					size -= 1;
+					//old start will be lost (unreachable) and automatically deleted by garbage collector
+				}else {
+					//if list contains only one element;
+					start = null;
+					end = null;
+					size -= 1;
+				}
+			}
+			
+		}
     }
 
     @Override
